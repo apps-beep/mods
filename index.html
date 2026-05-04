@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mods Minecraft Skins and MCPE – Best Mods, Maps & Skins for Minecraft PE</title>
+  <meta name="description" content="Download the best mods, addons, maps, skins and seeds for Minecraft PE. Free app – updated daily."/>
+  <link rel="icon" href="icon.png" type="image/png"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0a0e1a;
+      --surface:  #141929;
+      --card:     #1a2235;
+      --border:   #2a3450;
+      --primary:  #4ade80;
+      --primary2: #22c55e;
+      --gold:     #f59e0b;
+      --blue:     #3b82f6;
+      --purple:   #8b5cf6;
+      --red:      #ef4444;
+      --text:     #f1f5f9;
+      --muted:    #94a3b8;
+      --faint:    #475569;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(20,25,41,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 10px; }
+    .nav-logo span { font-size: 17px; font-weight: 900; color: var(--text); }
+    .nav-logo span em { color: var(--primary); font-style: normal; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14px; transition: color .2s; }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta {
+      background: var(--primary); color: #000; font-weight: 800; font-size: 14px;
+      padding: 9px 20px; border-radius: 10px; text-decoration: none; transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      padding: 80px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(74,222,128,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(74,222,128,.12); border: 1px solid rgba(74,222,128,.3);
+      color: var(--primary); font-size: 13px; font-weight: 700;
+      padding: 5px 16px; border-radius: 20px; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900; line-height: 1.15; margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--primary); }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 560px; margin: 0 auto 36px; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--primary); color: #000; font-weight: 800; font-size: 16px;
+      padding: 14px 32px; border-radius: 14px; text-decoration: none;
+      box-shadow: 0 8px 24px rgba(74,222,128,.3); transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(74,222,128,.4); }
+    .btn-secondary {
+      background: var(--card); color: var(--text); font-weight: 700; font-size: 16px;
+      padding: 14px 32px; border-radius: 14px; text-decoration: none; border: 1px solid var(--border);
+      transition: border-color .2s;
+    }
+    .btn-secondary:hover { border-color: var(--primary); }
+    .hero-stats {
+      display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+      margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border);
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat strong { display: block; font-size: 2rem; font-weight: 900; color: var(--primary); }
+    .hero-stat span { font-size: 13px; color: var(--muted); }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 5%; }
+    .section-label { color: var(--primary); font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+    h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 900; margin-bottom: 14px; }
+    .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 540px; margin-bottom: 50px; }
+    .center { text-align: center; }
+    .center .section-sub { margin-left: auto; margin-right: auto; }
+
+    /* ── FEATURES GRID ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      transition: border-color .2s, transform .2s;
+    }
+    .feature-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+    .feature-icon { font-size: 36px; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+    .feature-card p { color: var(--muted); font-size: 14px; }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      background: linear-gradient(135deg, rgba(74,222,128,.1), rgba(59,130,246,.08));
+      border: 1px solid rgba(74,222,128,.2);
+      border-radius: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      overflow: hidden;
+    }
+    .stat-item {
+      padding: 32px 20px; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item strong { display: block; font-size: 2.4rem; font-weight: 900; color: var(--primary); }
+    .stat-item span { font-size: 13px; color: var(--muted); }
+
+    /* ── CATEGORIES ── */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+    }
+    .cat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 16px;
+      text-align: center;
+      text-decoration: none;
+      transition: border-color .2s, transform .2s;
+    }
+    .cat-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+    .cat-card .emoji { font-size: 36px; display: block; margin-bottom: 10px; }
+    .cat-card strong { display: block; color: var(--text); font-size: 15px; font-weight: 800; }
+    .cat-card span { font-size: 12px; color: var(--muted); }
+
+    /* ── HOW IT WORKS ── */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+    .step {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 28px; text-align: center;
+    }
+    .step-num {
+      width: 44px; height: 44px; background: var(--primary);
+      border-radius: 12px; color: #000; font-weight: 900; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-weight: 800; margin-bottom: 8px; }
+    .step p { color: var(--muted); font-size: 14px; }
+
+    /* ── ABOUT / COMPANY ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .about-text p { color: var(--muted); margin-bottom: 16px; }
+    .contact-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 28px;
+    }
+    .contact-card h3 { font-weight: 800; margin-bottom: 20px; }
+    .contact-item { display: flex; gap: 12px; margin-bottom: 14px; color: var(--muted); font-size: 14px; }
+    .contact-item span:first-child { font-size: 18px; }
+
+    /* ── PRIVACY / TERMS ── */
+    .legal-content {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 40px; max-width: 800px; margin: 0 auto;
+    }
+    .legal-content h3 { color: var(--primary); font-weight: 800; margin: 28px 0 10px; font-size: 1.1rem; }
+    .legal-content h3:first-child { margin-top: 0; }
+    .legal-content p { color: var(--muted); font-size: 14px; margin-bottom: 12px; line-height: 1.8; }
+    .legal-content ul { color: var(--muted); font-size: 14px; padding-left: 20px; margin-bottom: 12px; }
+    .legal-content ul li { margin-bottom: 6px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface); border-top: 1px solid var(--border);
+      padding: 48px 5% 32px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand p { color: var(--muted); font-size: 14px; margin-top: 12px; max-width: 260px; }
+    .footer-col h4 { font-weight: 800; margin-bottom: 16px; font-size: 14px; }
+    .footer-col a {
+      display: block; color: var(--muted); text-decoration: none;
+      font-size: 14px; margin-bottom: 10px; transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { color: var(--faint); font-size: 13px; }
+    .footer-bottom a { color: var(--faint); text-decoration: none; font-size: 13px; }
+    .footer-bottom a:hover { color: var(--primary); }
+
+    /* ── GOOGLE PLAY BADGE ── */
+    .play-badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #000; border: 1px solid #333;
+      border-radius: 12px; padding: 10px 20px; text-decoration: none;
+      transition: border-color .2s;
+    }
+    .play-badge:hover { border-color: var(--primary); }
+    .play-badge svg { width: 28px; height: 28px; }
+    .play-badge div { text-align: left; }
+    .play-badge div small { display: block; color: #aaa; font-size: 10px; }
+    .play-badge div span { display: block; color: #fff; font-weight: 800; font-size: 15px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .about-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+    @media (max-width: 480px) {
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="icon.png" alt="App Icon"/>
+    <span>Mods <em>Minecraft</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#privacy">Privacy</a></li>
+    <li><a href="#terms">Terms</a></li>
+  </ul>
+  <a class="nav-cta" href="#download">Get the App</a>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">⛏️ #1 Minecraft PE Mod App</div>
+    <h1>The Best <span>Mods, Skins</span><br/>& Maps for MCPE</h1>
+    <p>Browse hundreds of free mods, addons, maps, skins, seeds and texture packs for Minecraft Pocket Edition. Updated daily.</p>
+    <div class="hero-btns">
+      <a href="#download" class="btn-primary">⬇️ Download Free</a>
+      <a href="#features" class="btn-secondary">Explore Features</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>500+</strong><span>Mods & Addons</span></div>
+      <div class="hero-stat"><strong>200+</strong><span>Custom Maps</span></div>
+      <div class="hero-stat"><strong>1000+</strong><span>Skins</span></div>
+      <div class="hero-stat"><strong>100%</strong><span>Free</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ── -->
+<section id="features">
+  <div class="center">
+    <div class="section-label">Features</div>
+    <h2>Everything you need for <span style="color:var(--primary)">MCPE</span></h2>
+    <p class="section-sub">One app for all your Minecraft PE content needs — no account required.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">⚙️</div>
+      <h3>Mods & Addons</h3>
+      <p>Install new mobs, items, mechanics and full gameplay overhauls with one tap.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🗺️</div>
+      <h3>Custom Maps</h3>
+      <p>Adventure maps, parkour courses, hunger games arenas and survival worlds.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👤</div>
+      <h3>Skins & Skin Packs</h3>
+      <p>Hundreds of HD skins — superheroes, anime, military, animals and more.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌱</div>
+      <h3>World Seeds</h3>
+      <p>Find the perfect seed — mansions at spawn, island villages, diamonds galore.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎨</div>
+      <h3>Texture Packs</h3>
+      <p>Realistic HD textures, cartoon packs, and themed resource packs.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔄</div>
+      <h3>Daily Updates</h3>
+      <p>New content added every day — bookmark favourites and never miss a release.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<section style="padding-top:0">
+  <div class="stats-strip">
+    <div class="stat-item"><strong>500+</strong><span>Mods Available</span></div>
+    <div class="stat-item"><strong>200+</strong><span>Unique Maps</span></div>
+    <div class="stat-item"><strong>1000+</strong><span>Skin Designs</span></div>
+    <div class="stat-item"><strong>4.8⭐</strong><span>User Rating</span></div>
+  </div>
+</section>
+
+<!-- ── CATEGORIES ── -->
+<section id="categories">
+  <div class="center">
+    <div class="section-label">Browse</div>
+    <h2>All Categories</h2>
+    <p class="section-sub">Everything organised in one place.</p>
+  </div>
+  <div class="categories-grid">
+    <a class="cat-card" href="#download"><span class="emoji">⚙️</span><strong>Addons</strong><span>New items & mobs</span></a>
+    <a class="cat-card" href="#download"><span class="emoji">🗺️</span><strong>Maps</strong><span>Adventure worlds</span></a>
+    <a class="cat-card" href="#download"><span class="emoji">👤</span><strong>Skins</strong><span>Custom characters</span></a>
+    <a class="cat-card" href="#download"><span class="emoji">🌱</span><strong>Seeds</strong><span>Amazing worlds</span></a>
+    <a class="cat-card" href="#download"><span class="emoji">🔧</span><strong>Mods</strong><span>Full overhauls</span></a>
+    <a class="cat-card" href="#download"><span class="emoji">🎨</span><strong>Textures</strong><span>HD resource packs</span></a>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section>
+  <div class="center">
+    <div class="section-label">How It Works</div>
+    <h2>3 steps to mod your game</h2>
+    <p class="section-sub">Get started in under a minute.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Browse</h3>
+      <p>Explore hundreds of mods, maps, skins and seeds organised by category.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Download</h3>
+      <p>Tap Download Free to get any mod instantly — no account or payment needed.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Play</h3>
+      <p>Install in Minecraft PE and enjoy your new content immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── DOWNLOAD ── -->
+<section id="download" style="background:var(--surface); border-radius:24px; margin:0 5%; padding:60px 40px; text-align:center;">
+  <div class="section-label">Get Started</div>
+  <h2>Download the App — Free</h2>
+  <p style="color:var(--muted); margin: 14px auto 36px; max-width:480px;">Available on Android. Free to download, no subscription required.</p>
+  <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.modsminecraft.skinsmcpe" target="_blank">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3.18 23.75c.32.18.68.25 1.05.22l12.6-11.57L13.41 9 3.18 23.75z" fill="#EA4335"/>
+      <path d="M20.82 10.3l-3.4-1.97-3.64 3.35 3.64 3.35 3.43-1.98a1.73 1.73 0 000-2.75z" fill="#FBBC04"/>
+      <path d="M4.23.03A1.73 1.73 0 003 1.67v20.66c0 .62.32 1.18.83 1.42L13.41 12 4.23.03z" fill="#4285F4"/>
+      <path d="M4.23.03L13.41 12l3.41-3.41L4.46.08A1.75 1.75 0 004.23.03z" fill="#34A853"/>
+    </svg>
+    <div>
+      <small>GET IT ON</small>
+      <span>Google Play</span>
+    </div>
+  </a>
+  <p style="color:var(--faint); font-size:13px; margin-top:20px;">Package: com.modsminecraft.skinsmcpe</p>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">About</div>
+      <h2>About the App</h2>
+      <p>Mods Minecraft Skins and MCPE is a free content browser for Minecraft Pocket Edition players. We curate the best mods, addons, maps, skins, seeds and texture packs from across the community so you never have to search the internet.</p>
+      <p>The app is managed remotely — content is updated daily without requiring an app update. All downloads are free and safe.</p>
+      <p>Built with ❤️ for the Minecraft PE community.</p>
+    </div>
+    <div class="contact-card">
+      <h3>📬 Contact Us</h3>
+      <div class="contact-item"><span>✉️</span><span>contact@azteconline-apps.org</span></div>
+      <div class="contact-item"><span>🌍</span><span>azteconline-apps.org</span></div>
+      <div class="contact-item"><span>📦</span><span>com.modsminecraft.skinsmcpe</span></div>
+      <div class="contact-item"><span>📱</span><span>Android 5.0+</span></div>
+      <div class="contact-item"><span>💰</span><span>Free — Ad supported</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRIVACY ── -->
+<section id="privacy">
+  <div class="center">
+    <div class="section-label">Legal</div>
+    <h2>Privacy Policy</h2>
+    <p class="section-sub">Last updated: May 2026</p>
+  </div>
+  <div class="legal-content">
+    <h3>1. Introduction</h3>
+    <p>Welcome to Mods Minecraft Skins and MCPE ("the App"). This Privacy Policy explains how we collect, use, and protect your information when you use our application. By using the App, you agree to this policy.</p>
+
+    <h3>2. Information We Collect</h3>
+    <p>We do not collect personally identifiable information directly. However, third-party services integrated in the App may collect data:</p>
+    <ul>
+      <li><strong>Google AdMob</strong> – collects device identifiers and usage data to serve personalised ads.</li>
+      <li><strong>Google Play Services</strong> – collects crash reports and performance data.</li>
+      <li><strong>Cached Network Images</strong> – images are cached locally on your device to improve performance.</li>
+    </ul>
+
+    <h3>3. How We Use Information</h3>
+    <p>Information collected by third-party SDKs is used solely to:</p>
+    <ul>
+      <li>Display relevant advertisements</li>
+      <li>Improve app performance and stability</li>
+      <li>Deliver content from our remote configuration</li>
+    </ul>
+
+    <h3>4. Third-Party Services</h3>
+    <p>The App uses the following third-party services, each governed by their own privacy policies:</p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy" style="color:var(--primary)">Google AdMob</a></li>
+      <li><a href="https://policies.google.com/privacy" style="color:var(--primary)">Google Play Services</a></li>
+    </ul>
+
+    <h3>5. Data Storage</h3>
+    <p>The App stores configuration data and cached images locally on your device using standard Android storage APIs. No data is transmitted to our own servers.</p>
+
+    <h3>6. Children's Privacy</h3>
+    <p>Our App is not directed to children under 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us.</p>
+
+    <h3>7. Your Rights</h3>
+    <p>You may opt out of personalised ads at any time via your device settings: <em>Settings → Google → Ads → Opt out of Ads Personalisation</em>.</p>
+
+    <h3>8. Changes to This Policy</h3>
+    <p>We may update this Privacy Policy from time to time. Changes will be reflected by the "Last updated" date above. Continued use of the App constitutes acceptance of the updated policy.</p>
+
+    <h3>9. Contact</h3>
+    <p>For any privacy-related questions, contact us at: <a href="mailto:contact@azteconline-apps.org" style="color:var(--primary)">contact@azteconline-apps.org</a></p>
+  </div>
+</section>
+
+<!-- ── TERMS ── -->
+<section id="terms">
+  <div class="center">
+    <div class="section-label">Legal</div>
+    <h2>Terms of Service</h2>
+    <p class="section-sub">Last updated: May 2026</p>
+  </div>
+  <div class="legal-content">
+    <h3>1. Acceptance</h3>
+    <p>By downloading or using Mods Minecraft Skins and MCPE, you agree to be bound by these Terms of Service. If you do not agree, do not use the App.</p>
+
+    <h3>2. License</h3>
+    <p>We grant you a limited, non-exclusive, non-transferable, revocable licence to use the App for personal, non-commercial purposes.</p>
+
+    <h3>3. Permitted Use</h3>
+    <ul>
+      <li>Browse and download content for personal use</li>
+      <li>Share the app with friends</li>
+    </ul>
+
+    <h3>4. Prohibited Use</h3>
+    <ul>
+      <li>Reverse engineering or decompiling the App</li>
+      <li>Using the App for commercial purposes without permission</li>
+      <li>Attempting to access our backend systems unauthorised</li>
+      <li>Redistributing App content without credit</li>
+    </ul>
+
+    <h3>5. Content</h3>
+    <p>All mod content linked within the App belongs to their respective creators. We act as a content aggregator and directory — we do not host or own the mod files themselves.</p>
+
+    <h3>6. Intellectual Property</h3>
+    <p>Minecraft is a trademark of Mojang AB. This App is not affiliated with, endorsed by, or associated with Mojang or Microsoft.</p>
+
+    <h3>7. Disclaimer</h3>
+    <p>The App is provided "as is" without warranties of any kind. We are not responsible for any damage caused by mods downloaded through the App.</p>
+
+    <h3>8. Governing Law</h3>
+    <p>These Terms shall be governed by and construed in accordance with applicable law. Any disputes shall be resolved through good-faith negotiation.</p>
+
+    <h3>9. Contact</h3>
+    <p>For terms-related questions: <a href="mailto:contact@azteconline-apps.org" style="color:var(--primary)">contact@azteconline-apps.org</a></p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#" style="margin-bottom:4px; display:inline-flex;">
+        <img src="icon.png" alt="Icon" style="width:32px;height:32px;border-radius:8px;"/>
+        <span style="font-size:15px;">Mods <em style="color:var(--primary);font-style:normal;">Minecraft</em></span>
+      </a>
+      <p>The best free mod browser for Minecraft Pocket Edition. Updated daily.</p>
+    </div>
+    <div class="footer-col">
+      <h4>App</h4>
+      <a href="#features">Features</a>
+      <a href="#categories">Categories</a>
+      <a href="#download">Download</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#about">About</a>
+      <a href="mailto:contact@azteconline-apps.org">Contact</a>
+      <a href="https://azteconline-apps.org" target="_blank">Website</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Mods Minecraft Skins and MCPE · azteconline-apps.org</p>
+    <div style="display:flex; gap:20px;">
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+      <a href="mailto:contact@azteconline-apps.org">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth hamburger toggle for mobile
+  document.querySelector('.hamburger').addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '64px';
+    links.style.right = '5%';
+    links.style.background = 'var(--surface)';
+    links.style.border = '1px solid var(--border)';
+    links.style.borderRadius = '12px';
+    links.style.padding = '16px 24px';
+  });
+</script>
+</body>
+</html>
